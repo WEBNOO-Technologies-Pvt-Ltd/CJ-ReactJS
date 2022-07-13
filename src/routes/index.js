@@ -171,6 +171,19 @@ import BlogDetails from "../pages/Blog/BlogDetails";
 
 const authProtectedRoutes = [
 
+
+
+  // this route should be at the end of all other routes
+  // eslint-disable-next-line react/display-name
+  { path: "/", exact: true, component: () => <Redirect to="/dashboard" /> },
+];
+
+const publicRoutes = [
+  { path: "/dashboard", component: Dashboard },
+  { path: "/dashboard-saas", component: DashboardSaas },
+  { path: "/dashboard-crypto", component: DashboardCrypto },
+  { path: "/dashboard-blog", component: DashboardBlog },
+  
   //Crypto
   { path: "/crypto-wallet", component: CryptoWallet },
   { path: "/crypto-buy-sell", component: CryptoBuySell },
@@ -306,17 +319,9 @@ const authProtectedRoutes = [
   { path: "/pages-timeline", component: PagesTimeline },
   { path: "/pages-faqs", component: PagesFaqs },
   { path: "/pages-pricing", component: PagesPricing },
-
-  // this route should be at the end of all other routes
-  // eslint-disable-next-line react/display-name
-  { path: "/", exact: true, component: () => <Redirect to="/dashboard" /> },
-];
-
-const publicRoutes = [
-  { path: "/dashboard", component: Dashboard },
-  { path: "/dashboard-saas", component: DashboardSaas },
-  { path: "/dashboard-crypto", component: DashboardCrypto },
-  { path: "/dashboard-blog", component: DashboardBlog },
+  // testshekhar
+  
+  
   
   { path: "/logout", component: Logout },
   { path: "/login", component: Login },
