@@ -170,10 +170,6 @@ import BlogGrid from "../pages/Blog/BlogGrid/index";
 import BlogDetails from "../pages/Blog/BlogDetails";
 
 const authProtectedRoutes = [
-  { path: "/dashboard", component: Dashboard },
-  { path: "/dashboard-saas", component: DashboardSaas },
-  { path: "/dashboard-crypto", component: DashboardCrypto },
-  { path: "/dashboard-blog", component: DashboardBlog },
 
   //Crypto
   { path: "/crypto-wallet", component: CryptoWallet },
@@ -317,6 +313,11 @@ const authProtectedRoutes = [
 ];
 
 const publicRoutes = [
+  { path: "/dashboard", component: Dashboard },
+  { path: "/dashboard-saas", component: DashboardSaas },
+  { path: "/dashboard-crypto", component: DashboardCrypto },
+  { path: "/dashboard-blog", component: DashboardBlog },
+  
   { path: "/logout", component: Logout },
   { path: "/login", component: Login },
   { path: "/forgot-password", component: ForgetPwd },
