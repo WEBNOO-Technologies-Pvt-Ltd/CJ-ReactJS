@@ -171,14 +171,6 @@ import BlogDetails from "../pages/Blog/BlogDetails";
 
 const authProtectedRoutes = [
 
-
-
-  // this route should be at the end of all other routes
-  // eslint-disable-next-line react/display-name
-  { path: "/", exact: true, component: () => <Redirect to="/dashboard" /> },
-];
-
-const publicRoutes = [
   { path: "/dashboard", component: Dashboard },
   { path: "/dashboard-saas", component: DashboardSaas },
   { path: "/dashboard-crypto", component: DashboardCrypto },
@@ -320,6 +312,14 @@ const publicRoutes = [
   { path: "/pages-faqs", component: PagesFaqs },
   { path: "/pages-pricing", component: PagesPricing },
   // testshekhar
+
+  // this route should be at the end of all other routes
+  // eslint-disable-next-line react/display-name
+  { path: "/", exact: true, component: () => <Redirect to="/dashboard" /> },
+];
+
+const publicRoutes = [
+
   
   
   
