@@ -11,8 +11,29 @@ import paginationFactory, {
 import ToolkitProvider from 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit';
 
 import { Link } from "react-router-dom"
+//Date Picker
+import DatePicker from "react-datepicker"
+import "react-datepicker/dist/react-datepicker.css"
 
-import { Button, Card, CardBody, Badge } from "reactstrap"
+import {
+  Container,
+  Row,
+  Col,
+  Button,
+  Card,
+  Badge,
+  Form,
+  CardBody,
+  FormGroup,
+  CardTitle,
+  Label,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Table,
+  Input,
+} from "reactstrap";
 
 import {
   getOrders,
@@ -178,48 +199,73 @@ class LatestTranaction extends Component {
         />
         <Card>
           <CardBody>
-            <div className="mb-4 h4 card-title">Latest Transaction</div>
-            <PaginationProvider
-              pagination={paginationFactory(pageOptions)}
-              keyField='id'
-              columns={this.state.EcommerceOrderColumns}
-              data={orders}
-            >
-              {({ paginationProps, paginationTableProps }) => (
-                <ToolkitProvider
-                  keyField="id"
-                  data={orders}
-                  columns={this.state.EcommerceOrderColumns}
-                  bootstrap4
-                  search
-                >
-                  {toolkitProps => (
-                    <React.Fragment>
-                      <div className="table-responsive">
-                        <BootstrapTable
-                          {...toolkitProps.baseProps}
-                          {...paginationTableProps}
-                          responsive
-                          defaultSorted={defaultSorted}
-                          bordered={false}
-                          striped={false}
-                          selectRow={selectRow}
-                          classes={
-                            "table align-middle table-nowrap table-check"
-                          }
-                          headerWrapperClasses={"table-light"}
-                        />
-                      </div>
-                      <div className="pagination pagination-rounded justify-content-end">
-                        <PaginationListStandalone
-                          {...paginationProps}
-                        />
-                      </div>
-                    </React.Fragment>
-                  )}
-                </ToolkitProvider>
-              )}
-            </PaginationProvider>
+            <div className="mb-4 h4 card-title">Filter Exam Data</div>
+
+            <Form>
+                          <Row>
+                          <Col sm="6" className="col-xl">
+                              <FormGroup className="mt-3 mb-0">
+                                <Label>Select Exam</Label>
+                                <select className="form-control select2-search-disable">
+                                  <option value="BTC" defaultValue>
+                                    Bitcoin
+                                  </option>
+                                  <option value="ETH">Ethereum</option>
+                                  <option value="LTC">litecoin</option>
+                                </select>
+                              </FormGroup>
+                            </Col>
+
+                            <Col sm="6" className="col-xl">
+                              <FormGroup className="mt-3 mb-0">
+                                <Label>Exam Date</Label>
+                                <select className="form-control select2-search-disable">
+                                  <option value="BTC" defaultValue>
+                                    Bitcoin
+                                  </option>
+                                  <option value="ETH">Ethereum</option>
+                                  <option value="LTC">litecoin</option>
+                                </select>
+                              </FormGroup>
+                            </Col>
+
+                            <Col sm="6" className="col-xl">
+                              <FormGroup className="mt-3 mb-0">
+                                <Label>Exam Shift</Label>
+                                <select className="form-control select2-search-disable">
+                                  <option value="BU" defaultValue>
+                                    Buy
+                                  </option>
+                                  <option value="SE">Sell</option>
+                                </select>
+                              </FormGroup>
+                            </Col>
+
+                            <Col sm="6" className="col-xl">
+                              <FormGroup className="mt-3 mb-0">
+                                <Label>Exam Center</Label>
+                                <select className="form-control select2-search-disable">
+                                  <option value="CO" defaultValue>
+                                    Completed
+                                  </option>
+                                  <option value="PE">Pending</option>
+                                </select>
+                              </FormGroup>
+                            </Col>
+
+                            <Col sm="6" className="col-xl align-self-end">
+                              <div className="mb-3">
+                                <Button
+                                  type="button"
+                                  color="primary filter-btn"
+                                  className="w-md">
+                                  Filter
+                                </Button>
+                              </div>
+                            </Col>
+                          </Row>
+                        </Form>
+            
           </CardBody>
         </Card>
       </React.Fragment>

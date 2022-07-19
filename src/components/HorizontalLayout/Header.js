@@ -129,7 +129,7 @@ class Header extends Component {
                 <i className="fa fa-fw fa-bars" />
               </button>
 
-              <form className="app-search d-none d-lg-block">
+              <form className="app-search d-none d-none">
                 <div className="position-relative">
                   <input
                     type="text"
@@ -140,7 +140,7 @@ class Header extends Component {
                 </div>
               </form>
               <Dropdown
-                className="dropdown-mega d-none d-lg-block ms-2"
+                className="dropdown-mega d-none  ms-2 d-none"
                 isOpen={this.state.megaMenuDrp}
                 toggle={() => {
                   this.setState({ megaMenuDrp: !this.state.megaMenuDrp });
@@ -293,7 +293,7 @@ class Header extends Component {
             </div>
 
             <div className="d-flex">
-              <div className="dropdown d-inline-block d-lg-none ms-2">
+              <div className="dropdown  d-lg-none ms-2">
                 <button
                   type="button"
                   className="btn header-item noti-icon"
@@ -332,7 +332,7 @@ class Header extends Component {
                 </div>
               </div>
 
-              <LanguageDropdown />
+              
 
               <Dropdown
                 className="d-none d-lg-inline-block ms-1"
@@ -405,11 +405,9 @@ class Header extends Component {
                 </button>
               </div>
 
-              <NotificationDropdown />
+            
 
-              <ProfileMenu />
-
-              <div className="dropdown d-inline-block">
+              <div className="dropdown d-none">
                 <button
                   onClick={() => {
                     this.toggleRightbar();

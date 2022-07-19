@@ -29,7 +29,7 @@ class SalesAnalytics extends Component {
         <Col xl="4">
           <Card>
             <CardBody>
-              <h4 className="card-title mb-4">Sales Analytics</h4>
+              <h4 className="card-title mb-4">Attendance Analytics</h4>
 
               <div>
                 <div id="donut-chart" className="apex-charts">
@@ -48,27 +48,27 @@ class SalesAnalytics extends Component {
                     <div className="mt-4">
                       <p className="mb-2 text-truncate">
                         <i className="mdi mdi-circle text-primary me-1"/>{" "}
-                        Product A
+                        Present
                       </p>
-                      <h5>$ 2,132</h5>
+                      <h5>2132</h5>
                     </div>
                   </Col>
                   <Col xs="4">
                     <div className="mt-4">
                       <p className="mb-2 text-truncate">
                         <i className="mdi mdi-circle text-success me-1"/>{" "}
-                        Product B
+                        Duplicate
                       </p>
-                      <h5>$ 1,763</h5>
+                      <h5>1763</h5>
                     </div>
                   </Col>
                   <Col xs="4">
                     <div className="mt-4">
                       <p className="mb-2 text-truncate">
                         <i className="mdi mdi-circle text-danger me-1"/>{" "}
-                        Product C
+                       Absent
                       </p>
-                      <h5>$ 973</h5>
+                      <h5>973</h5>
                     </div>
                   </Col>
                 </Row>

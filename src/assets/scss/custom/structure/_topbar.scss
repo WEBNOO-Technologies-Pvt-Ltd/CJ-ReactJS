@@ -8,7 +8,7 @@
   right: 0;
   left: $sidebar-width;
   z-index: 1002;
-  background-color: $header-bg;
+  background-color: #1c008a;
   box-shadow: $box-shadow;
   @media (max-width: 991.98px) {
     left: 0;
@@ -137,7 +137,7 @@
 .noti-icon {
   i {
     font-size: 22px;
-    color: $header-item-color;
+    color: #fff;
   }
 
   .badge {
@@ -285,7 +285,7 @@ body[data-layout="horizontal"] {
     width: auto;
   }
   .page-content {
-    margin-top: $header-height;
+    margin-top: 20px;
     padding: calc(55px + #{$grid-gutter-width}) calc(#{$grid-gutter-width} / 2)
       $footer-height calc(#{$grid-gutter-width} / 2);
   }
@@ -298,3 +298,9 @@ body[data-layout="horizontal"] {
     }
   }
 }
+.filter-btn {
+  background-color: #1c008a;
+}
+
+.nav-link {
+  padding: 0.5rem 0.7rem !important; }

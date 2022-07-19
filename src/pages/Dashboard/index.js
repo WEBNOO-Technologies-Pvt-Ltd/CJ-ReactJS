@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import Earning from "./../Dashboard-saas/earning";
+import SalesAnalytics from "./../Dashboard-saas/sales-analytics";
+import CryptoWallet from "./../Crypto/crypto-buy-sell";
 import {
   Container,
   Row,
@@ -76,7 +79,7 @@ class Dashboard extends Component {
 
   componentDidMount() {
     const { onGetChartsData } = this.props;
-    setTimeout(() => this.setState({ subscribemodal: true }), 2000);
+    setTimeout(() => this.setState({ subscribemodal: false }), 2000);
     onGetChartsData("yearly");
   }
 
@@ -100,143 +103,30 @@ class Dashboard extends Component {
 
   render() {
     //meta title
-    document.title = "Dashboard | Skote - React Admin & Dashboard Template";
+    document.title = "CJPL Dashboard";
 
     return (
       <React.Fragment>
         <div className="page-content">
           <Container fluid>
             {/* Render Breadcrumb */}
-            <Breadcrumbs
-              title={this.props.t("Dashboards")}
-              breadcrumbItem={this.props.t("Dashboard")}
-            />
-            <Row>
-              <Col xl="4">
-                <WelcomeComp />
-                <MonthlyEarning />
-              </Col>
-              <Col xl="8">
-                <Row>
-                  {/* Reports Render */}
-                  {this.state.reports.map((report, key) => (
-                    <Col md="4" key={"_col_" + key}>
-                      <Card className="mini-stats-wid">
-                        <CardBody>
-                          <div className="d-flex">
-                            <div className="flex-grow-1">
-                              <p className="text-muted fw-medium">
-                                {report.title}
-                              </p>
-                              <h4 className="mb-0">{report.description}</h4>
-                            </div>
-                            <div className="mini-stat-icon avatar-sm rounded-circle bg-primary align-self-center">
-                              <span className="avatar-title">
-                                <i
-                                  className={
-                                    "bx " + report.iconClass + " font-size-24"
-                                  }
-                                />
-                              </span>
-                            </div>
-                          </div>
-                        </CardBody>
-                      </Card>
-                    </Col>
-                  ))}
-                </Row>
-
-                <Card>
-                  <CardBody>
-                    <div className="d-sm-flex flex-wrap">
-                      <CardTitle className="card-title mb-4 h4">
-                        Email Sent
-                      </CardTitle>
-                      <div className="ms-auto">
-                        <ul className="nav nav-pills">
-                          <li className="nav-item">
-                            <Link
-                              to="#"
-                              className={classNames(
-                                { active: this.state.periodType === "weekly" },
-                                "nav-link"
-                              )}
-                              onClick={() => {
-                                this.setState({
-                                  ...this.state,
-                                  periodType: "weekly",
-                                });
-                                this.props.onGetChartsData("weekly");
-                              }}
-                              id="one_month"
-                            >
-                              Week
-                            </Link>{" "}
-                          </li>
-                          <li className="nav-item">
-                            <Link
-                              to="#"
-                              className={classNames(
-                                { active: this.state.periodType === "monthly" },
-                                "nav-link"
-                              )}
-                              onClick={() => {
-                                this.setState({
-                                  ...this.state,
-                                  periodType: "monthly",
-                                });
-                                this.props.onGetChartsData("monthly");
-                              }}
-                              id="one_month"
-                            >
-                              Month
-                            </Link>
-                          </li>
-                          <li className="nav-item">
-                            <Link
-                              to="#"
-                              className={classNames(
-                                { active: this.state.periodType === "yearly" },
-                                "nav-link"
-                              )}
-                              onClick={() => {
-                                this.setState({
-                                  ...this.state,
-                                  periodType: "yearly",
-                                });
-                                this.props.onGetChartsData("yearly");
-                              }}
-                              id="one_month"
-                            >
-                              Year
-                            </Link>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div className="clearfix" />
-                    <StackedColumnChart chartSeries={this.state.chartSeries} />
-                  </CardBody>
-                </Card>
-              </Col>
-            </Row>
-
-            <Row>
-              <Col xl="4">
-                <SocialSource />
-              </Col>
-              <Col xl="4">
-                <ActivityComp />
-              </Col>
-              <Col xl="4">
-                <TopCities />
-              </Col>
-            </Row>
+            
+           
             <Row>
               <Col lg="12">
                 <LatestTranaction />
               </Col>
             </Row>
+
+            <Row>
+              {/* earning */}
+              <Earning />
+
+              {/* sales anytics */}
+              <SalesAnalytics />
+            </Row>
+            
+            <CryptoWallet />
           </Container>
         </div>
 
