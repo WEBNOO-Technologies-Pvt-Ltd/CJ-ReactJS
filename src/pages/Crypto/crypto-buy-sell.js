@@ -21,9 +21,9 @@ import {
   InputGroup,
 } from "reactstrap";
 import classnames from "classnames";
+import BootstrapTable from 'react-bootstrap-table-next';
+import paginationFactory from 'react-bootstrap-table2-paginator';
 
-//Import Breadcrumb
-import Breadcrumbs from "components/Common/Breadcrumb";
 
 class CryptoWallet extends Component {
   constructor(props) {
@@ -31,9 +31,52 @@ class CryptoWallet extends Component {
     this.state = {
       activeTab: "1",
       isMenu: false,
+      columns : [{
+        dataField: 'idno',
+        text: 'Id No'
+      },{
+        dataField: 'pdate',
+        text: 'Date'
+      }, {
+        dataField: 'type',
+        text: 'Type'
+      }, {
+        dataField: 'coin',
+        text: 'Currency'
+      },{
+        dataField: 'amount',
+        text: 'Amount'
+      },{
+        dataField: 'valueInUsd',
+        text: 'value in USD'
+      }],
+      productData : [
+        { id: 1, idno:"#SK3226", pdate : "03 Mar, 2020",type:"Buy",coin:"Litecoin",amount:"0.00413 LTC",valueInUsd:"$ 1773.01"},
+        { id: 2, idno:"#SK3336", pdate : "03 Mar, 2020",type:"Sell",coin:"Ethereum",amount:"0.00413 ETH",valueInUsd:"$ 1773.01"},
+        { id: 3, idno:"#SK3226", pdate : "13 Jun, 2020",type:"Sell",coin:"Litecoin",amount:"0.00413 LTC",valueInUsd:"$ 1773.01"},
+        { id: 4, idno:"#SK3226", pdate : "03 Mar, 2020",type:"Buy",coin:"Ethereum",amount:"0.00413 ETH",valueInUsd:"$ 1773.01"},
+        { id: 5, idno:"#SK3226", pdate : "23 Mar, 2020",type:"Buy",coin:"Litecoin",amount:"0.00413 ETH",valueInUsd:"$ 1773.01"},
+        { id: 6, idno:"#SK3116", pdate : "03 Mar, 2020",type:"Sell",coin:"Ethereum",amount:"0.00413 LTC",valueInUsd:"$ 1773.01"},
+        { id: 7, idno:"#SK3336", pdate : "13 Mar, 2020",type:"Buy",coin:"Ethereum",amount:"0.00413 ETH",valueInUsd:"$ 1773.01"},
+        { id: 8, idno:"#SK3226", pdate : "03 Mar, 2020",type:"Buy",coin:"Litecoin",amount:"0.00413 ETH",valueInUsd:"$ 1773.01"},
+        { id: 9, idno:"#SK3226", pdate : "23 Mar, 2020",type:"Buy",coin:"Litecoin",amount:"0.00413 ETH",valueInUsd:"$ 1773.01"},
+        { id: 10, idno:"#SK3226", pdate : "03 Mar, 2020",type:"Sell",coin:"Litecoin",amount:"0.00413 ETH",valueInUsd:"$ 1773.01"},
+        { id: 11, idno:"#SK3226", pdate : "08 Mar, 2020",type:"Sell",coin:"Litecoin",amount:"0.00413 ETH",valueInUsd:"$ 1773.01"},
+        { id: 12, idno:"#SK3226", pdate : "03 Mar, 2020",type:"Buy",coin:"Litecoin",amount:"0.00413 ETH",valueInUsd:"$ 1773.01"},
+        { id: 13, idno:"#SK3336", pdate : "03 Mar, 2020",type:"Buy",coin:"Ethereum",amount:"0.00413 LTC",valueInUsd:"$ 1773.01"},
+        { id: 14, idno:"#SK3336", pdate : "07 Mar, 2020",type:"Sell",coin:"Litecoin",amount:"0.00413 ETH",valueInUsd:"$ 1773.01"},
+        { id: 15, idno:"#SK3226", pdate : "13 Mar, 2020",type:"Buy",coin:"Litecoin",amount:"0.00413 ETH",valueInUsd:"$ 1773.01"},
+        { id: 16, idno:"#SK3226", pdate : "03 Mar, 2020",type:"Buy",coin:"Ethereum",amount:"0.00413 ETH",valueInUsd:"$ 1773.01"},
+        { id: 17, idno:"#SK3336", pdate : "03 Mar, 2020",type:"Buy",coin:"Litecoin",amount:"0.00413 LTC",valueInUsd:"$ 1773.01"},
+        ]
     };
-    this.toggleTab = this.toggleTab.bind(this);
+    
+   
+   
+
+      this.toggleTab = this.toggleTab.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
+
   }
 
   toggleTab(tab) {
@@ -53,68 +96,20 @@ class CryptoWallet extends Component {
   render() {
 
     //meta title
-    document.title = "Buy/Sell | Skote - React Admin & Dashboard Template";
+    //document.title = "Buy/Sell | Skote - React Admin & Dashboard Template";
 
     return (
       <React.Fragment>
-        <div className="page-content">
-          <Container fluid>
+        <div className="">
+          
             {/* Render Breadcrumb */}
-            <Breadcrumbs title="Crypto" breadcrumbItem="Buy/Sell" />
+            
             <Row>
               <Col lg="12">
                 <Card>
                   <CardBody>
-                    <div className="float-end">
-                      <Dropdown
-                        isOpen={this.state.isMenu}
-                        toggle={this.toggleMenu}
-                      >
-                        <DropdownToggle
-                          type="button"
-                          tag="button"
-                          className="btn btn-light"
-                        >
-                          <i className="mdi mdi-wallet me-1" />
-                          <span className="d-none d-sm-inline-block ms-1">
-                            Wallet Balance{" "}
-                            <i className="mdi mdi-chevron-down" />
-                          </span>
-                        </DropdownToggle>
-                        <DropdownMenu className="dropdown-menu-end dropdown-menu-md">
-                          <div className="dropdown-item-text">
-                            <div>
-                              <p className="text-muted mb-2">
-                                Available Balance
-                              </p>
-                              <h5 className="mb-0">$ 9148.23</h5>
-                            </div>
-                          </div>
-
-                          <DropdownItem divider />
-
-                          <DropdownItem href="#">
-                            BTC : <span className="float-end">1.02356</span>
-                          </DropdownItem>
-                          <DropdownItem href="#">
-                            ETH : <span className="float-end">0.04121</span>
-                          </DropdownItem>
-                          <DropdownItem href="#">
-                            LTC : <span className="float-end">0.00356</span>
-                          </DropdownItem>
-
-                          <DropdownItem divider />
-
-                          <DropdownItem
-                            className="text-primary text-center"
-                            href="#"
-                          >
-                            Learn more
-                          </DropdownItem>
-                        </DropdownMenu>
-                      </Dropdown>
-                    </div>
-                    <h4 className="card-title mb-4">Buy/Sell Crypto</h4>
+                    
+                    <h4 className="card-title mb-4">Detail View</h4>
                     <div className="crypto-buy-sell-nav">
                       <Nav tabs className="nav-tabs-custom" role="tablist">
                         <NavItem>
@@ -126,7 +121,7 @@ class CryptoWallet extends Component {
                               this.toggleTab("1");
                             }}
                           >
-                            Buy
+                            center
                           </NavLink>
                         </NavItem>
                         <NavItem>
@@ -138,9 +133,101 @@ class CryptoWallet extends Component {
                               this.toggleTab("2");
                             }}
                           >
-                            Sell
+                            Operator
                           </NavLink>
                         </NavItem>
+
+                        <NavItem>
+                          <NavLink
+                            className={classnames({
+                              active: this.state.activeTab === "3",
+                            })}
+                            onClick={() => {
+                              this.toggleTab("3");
+                            }}
+                          >
+                            Supervisor
+                          </NavLink>
+                        </NavItem>
+
+                        <NavItem>
+                          <NavLink
+                            className={classnames({
+                              active: this.state.activeTab === "4",
+                            })}
+                            onClick={() => {
+                              this.toggleTab("4");
+                            }}
+                          >
+                            Devices
+                          </NavLink>
+                        </NavItem>
+
+                        <NavItem>
+                          <NavLink
+                            className={classnames({
+                              active: this.state.activeTab === "5",
+                            })}
+                            onClick={() => {
+                              this.toggleTab("5");
+                            }}
+                          >
+                            Students
+                          </NavLink>
+                        </NavItem>
+
+                        <NavItem>
+                          <NavLink
+                            className={classnames({
+                              active: this.state.activeTab === "6",
+                            })}
+                            onClick={() => {
+                              this.toggleTab("6");
+                            }}
+                          >
+                            Live Attendance
+                          </NavLink>
+                        </NavItem>
+
+                        <NavItem>
+                          <NavLink
+                            className={classnames({
+                              active: this.state.activeTab === "7",
+                            })}
+                            onClick={() => {
+                              this.toggleTab("7");
+                            }}
+                          >
+                            Shift Closing Request
+                          </NavLink>
+                        </NavItem>
+
+                        <NavItem>
+                          <NavLink
+                            className={classnames({
+                              active: this.state.activeTab === "8",
+                            })}
+                            onClick={() => {
+                              this.toggleTab("8");
+                            }}
+                          >
+                            Operator Auth Request
+                          </NavLink>
+                        </NavItem>
+
+                        <NavItem>
+                          <NavLink
+                            className={classnames({
+                              active: this.state.activeTab === "9",
+                            })}
+                            onClick={() => {
+                              this.toggleTab("9");
+                            }}
+                          >
+                            Change Centre Request
+                          </NavLink>
+                        </NavItem>
+
                       </Nav>
 
                       <TabContent
@@ -148,338 +235,49 @@ class CryptoWallet extends Component {
                         className="crypto-buy-sell-nav-content p-4"
                       >
                         <TabPane tabId="1" id="buy">
-                          <form>
-                            <div className="mb-2">
-                              <Label>Currency :</Label>
-
-                              <Row>
-                                <Col xl="2" sm="4">
-                                  <div className="mb-3">
-                                    <Label className="card-radio-label mb-2">
-                                      <Input
-                                        type="radio"
-                                        name="currency"
-                                        id="buycurrencyoption1"
-                                        className="card-radio-input"
-                                        defaultChecked
-                                        readOnly
-                                      />
-
-                                      <div className="card-radio">
-                                        <div>
-                                          <i className="mdi mdi-bitcoin font-size-24 text-warning align-middle me-2" />{" "}
-                                          <span>Bitcoin</span>
-                                        </div>
-                                      </div>
-                                    </Label>
-
-                                    <div>
-                                      <p className="text-muted mb-1">
-                                        Current price :
-                                      </p>
-                                      <h5 className="font-size-16">
-                                        0.00016 BTC
-                                      </h5>
-                                    </div>
-                                  </div>
-                                </Col>
-
-                                <Col xl="2" sm="4">
-                                  <div className="mb-3">
-                                    <Label className="card-radio-label mb-2">
-                                      <Input
-                                        type="radio"
-                                        name="currency"
-                                        id="buycurrencyoption2"
-                                        className="card-radio-input"
-                                      />
-
-                                      <div className="card-radio">
-                                        <div>
-                                          <i className="mdi mdi-ethereum font-size-24 text-primary align-middle me-2" />{" "}
-                                          <span>Ethereum</span>
-                                        </div>
-                                      </div>
-                                    </Label>
-
-                                    <div>
-                                      <p className="text-muted mb-1">
-                                        Current price :
-                                      </p>
-                                      <h5 className="font-size-16">
-                                        0.0073 ETH
-                                      </h5>
-                                    </div>
-                                  </div>
-                                </Col>
-
-                                <Col xl="2" sm="4">
-                                  <div className="mb-3">
-                                    <Label className="card-radio-label mb-2">
-                                      <Input
-                                        type="radio"
-                                        name="currency"
-                                        id="buycurrencyoption3"
-                                        className="card-radio-input"
-                                      />
-
-                                      <div className="card-radio">
-                                        <div>
-                                          <i className="mdi mdi-litecoin font-size-24 text-info align-middle me-2" />{" "}
-                                          <span>litecoin</span>
-                                        </div>
-                                      </div>
-                                    </Label>
-
-                                    <div>
-                                      <p className="text-muted mb-1">
-                                        Current price :
-                                      </p>
-                                      <h5 className="font-size-16">
-                                        0.025 LTC
-                                      </h5>
-                                    </div>
-                                  </div>
-                                </Col>
-                              </Row>
-                            </div>
-
-                            <div className="mb-2">
-                              <Label>Payment method :</Label>
-
-                              <Row>
-                                <Col xl="2" sm="4">
-                                  <Label className="card-radio-label mb-3">
-                                    <Input
-                                      type="radio"
-                                      name="pay-method"
-                                      id="pay-methodoption1"
-                                      className="card-radio-input"
-                                    />
-
-                                    <div className="card-radio">
-                                      <i className="fab fa-cc-mastercard font-size-24 text-primary align-middle me-2" />{" "}
-                                      <span>Credit / Debit Card</span>
-                                    </div>
-                                  </Label>
-                                </Col>
-
-                                <Col xl="2" sm="4">
-                                  <Label className="card-radio-label mb-3">
-                                    <Input
-                                      type="radio"
-                                      name="pay-method"
-                                      id="pay-methodoption3"
-                                      className="card-radio-input"
-                                      defaultChecked
-                                      readOnly
-                                    />
-
-                                    <div className="card-radio">
-                                      <i className="fab fa-cc-paypal font-size-24 text-primary align-middle me-2" />{" "}
-                                      <span>Paypal</span>
-                                    </div>
-                                  </Label>
-                                </Col>
-                              </Row>
-                            </div>
-
-                            <div className="mb-3">
-                              <Label>Add value :</Label>
-
-                              <Row>
-                                <Col sm="6">
-                                  <InputGroup className="mb-2 currency-value">
-
-                                      <span className="input-group-text">
-                                        Bitcoin
-                                      </span>
-
-                                    <Input
-                                      type="text"
-                                      className="form-control"
-                                    />
-                                  </InputGroup>
-                                </Col>
-
-                                <Col sm="6">
-                                  <InputGroup className="mb-2">
-                                    <Input
-                                      type="text"
-                                      className="form-control text-sm-end"
-                                    />
-
-                                    <span className="input-group-text">
-                                      USD Amount
-                                    </span>
-                                  </InputGroup>
-                                </Col>
-                              </Row>
-                            </div>
-
-                            <div className="mb-3">
-                              <Label>Wallet Address :</Label>
-                              <Input type="text" className="form-control" />
-                            </div>
-                            <div className="text-center mt-4">
-                              <Button type="button" color="success">
-                                Buy Crypto currency
-                              </Button>
-                            </div>
-                          </form>
+                        <BootstrapTable keyField='id' data={ this.state.productData } columns={ this.state.columns } pagination={ paginationFactory() } />
                         </TabPane>
 
                         <TabPane tabId="2">
-                          <Form>
-                            <div className="mb-2">
-                              <Label>Currency :</Label>
-
-                              <Row>
-                                <Col xl="2" sm="4">
-                                  <div className="mb-3">
-                                    <Label className="card-radio-label mb-2">
-                                      <Input
-                                        type="radio"
-                                        name="currency"
-                                        id="sellcurrencyoption1"
-                                        className="card-radio-input"
-                                        defaultChecked
-                                        readOnly
-                                      />
-
-                                      <div className="card-radio">
-                                        <div>
-                                          <i className="mdi mdi-bitcoin font-size-24 text-warning align-middle me-2" />
-                                          <span>Bitcoin</span>
-                                        </div>
-                                      </div>
-                                    </Label>
-                                    <div>
-                                      <p className="text-muted mb-1">
-                                        Current price :
-                                      </p>
-                                      <h5 className="font-size-16">
-                                        0.00016 BTC
-                                      </h5>
-                                    </div>
-                                  </div>
-                                </Col>
-
-                                <Col xl="2" sm="4">
-                                  <div className="mb-3">
-                                    <Label className="card-radio-label mb-2">
-                                      <Input
-                                        type="radio"
-                                        name="currency"
-                                        id="sellcurrencyoption2"
-                                        className="card-radio-input"
-                                      />
-
-                                      <div className="card-radio">
-                                        <div>
-                                          <i className="mdi mdi-ethereum font-size-24 text-primary align-middle me-2" />
-                                          <span>Ethereum</span>
-                                        </div>
-                                      </div>
-                                    </Label>
-                                    <div>
-                                      <p className="text-muted mb-1">
-                                        Current price :
-                                      </p>
-                                      <h5 className="font-size-16">
-                                        0.0073 ETH
-                                      </h5>
-                                    </div>
-                                  </div>
-                                </Col>
-
-                                <Col xl="2" sm="4">
-                                  <div className="mb-3">
-                                    <Label className="card-radio-label mb-2">
-                                      <Input
-                                        type="radio"
-                                        name="currency"
-                                        id="sellcurrencyoption3"
-                                        className="card-radio-input"
-                                      />
-
-                                      <div className="card-radio">
-                                        <div>
-                                          <i className="mdi mdi-litecoin font-size-24 text-info align-middle me-2" />
-                                          <span>litecoin</span>
-                                        </div>
-                                      </div>
-                                    </Label>
-
-                                    <div>
-                                      <p className="text-muted mb-1">
-                                        Current price :
-                                      </p>
-                                      <h5 className="font-size-16">
-                                        0.025 LTC
-                                      </h5>
-                                    </div>
-                                  </div>
-                                </Col>
-                              </Row>
-                            </div>
-
-                            <div className="mb-3">
-                              <Label>Email :</Label>
-                              <Input type="email" className="form-control" />
-                            </div>
-
-                            <div className="mb-3">
-                              <Label>Add value :</Label>
-
-                              <Row>
-                                <Col sm="6">
-                                  <InputGroup className="mb-2 currency-value">
-                                  
-                                      <span className="input-group-text">
-                                        Crypto value
-                                      </span>
-
-                                    <Input
-                                      type="text"
-                                      className="form-control"
-                                    />
-                                  </InputGroup>
-                                </Col>
-
-                                <Col sm="6">
-                                  <InputGroup className="mb-3">
-                                    <Input
-                                      type="text"
-                                      className="form-control text-sm-end"
-                                    />
-
-                                    <span className="input-group-text">
-                                      USD Amount
-                                    </span>
-                                  </InputGroup>
-                                </Col>
-                              </Row>
-                            </div>
-
-                            <div className="mb-3">
-                              <Label>Wallet Address :</Label>
-                              <Input type="text" className="form-control" />
-                            </div>
-                            <div className="text-center mt-4">
-                              <Button type="button" color="danger">
-                                Sell Crypto currency
-                              </Button>
-                            </div>
-                          </Form>
+                        <BootstrapTable keyField='id' data={ this.state.productData } columns={ this.state.columns } pagination={ paginationFactory() } />
                         </TabPane>
+
+                        <TabPane tabId="3">
+                        <BootstrapTable keyField='id' data={ this.state.productData } columns={ this.state.columns } pagination={ paginationFactory() } />
+                        </TabPane>
+
+                        <TabPane tabId="4">
+                        <BootstrapTable keyField='id' data={ this.state.productData } columns={ this.state.columns } pagination={ paginationFactory() } />
+                        </TabPane>
+
+                        <TabPane tabId="5">
+                        <BootstrapTable keyField='id' data={ this.state.productData } columns={ this.state.columns } pagination={ paginationFactory() } />
+                        </TabPane>
+
+                        <TabPane tabId="6">
+                        <BootstrapTable keyField='id' data={ this.state.productData } columns={ this.state.columns } pagination={ paginationFactory() } />
+                        </TabPane>
+
+                        <TabPane tabId="7">
+                        <BootstrapTable keyField='id' data={ this.state.productData } columns={ this.state.columns } pagination={ paginationFactory() } />
+                        </TabPane>
+
+                        <TabPane tabId="8">
+                        <BootstrapTable keyField='id' data={ this.state.productData } columns={ this.state.columns } pagination={ paginationFactory() } />
+                        </TabPane>
+
+                        <TabPane tabId="9">
+                        <BootstrapTable keyField='id' data={ this.state.productData } columns={ this.state.columns } pagination={ paginationFactory() } />
+                        </TabPane>
+
+
                       </TabContent>
                     </div>
                   </CardBody>
                 </Card>
               </Col>
             </Row>
-          </Container>
+         
         </div>
       </React.Fragment>
     );

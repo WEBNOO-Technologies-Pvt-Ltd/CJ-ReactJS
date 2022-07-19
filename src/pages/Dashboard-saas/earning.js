@@ -68,75 +68,177 @@ class Earning extends Component {
     return (
       <React.Fragment>
         <Col xl="8">
-          <Card>
-            <CardBody>
-              <div className="clearfix">
-                <div className="float-end">
-                  <div className="input-group input-group-sm">
-                    <select
-                      value={seletedMonth}
-                      onChange={(e) => {
-                        this.setState({ ...this.state, seletedMonth: e.target.value });
-                        this.props.onGetEarningChartsData(e.target.value);
-                      }}
-                      className="form-select form-select-sm">
-                      <option value="jan">Jan</option>
-                      <option value="dec">Dec</option>
-                      <option value="nov">Nov</option>
-                      <option value="oct">Oct</option>
-                    </select>
-                    <label className="input-group-text">Month</label>
-                  </div>
-                </div>
-                <h4 className="card-title mb-4">Earning</h4>
-              </div>
+        <Row>
+            <Col lg={4}>
+              <Card className="mini-stats-wid">
+                <CardBody>
+                  <div className="d-flex flex-wrap">
+                    <div className="me-3">
+                      <p className="text-muted mb-2">Total Students</p>
+                      <h5 className="mb-0">120</h5>
+                    </div>
 
-              <Row>
-                <Col lg="4">
-                  <div className="text-muted">
-                    <div className="mb-4">
-                      <p>This month</p>
-                      <h4>$2453.35</h4>
-                      <div>
-                        <span className="badge badge-soft-success font-size-12 me-1">
-                          {" "}
-                          + 0.2%{" "}
-                        </span>{" "}
-                        From previous period
+                    <div className="avatar-sm ms-auto">
+                      <div className="avatar-title bg-light rounded-circle text-primary font-size-20">
+                        <i className="bx bxs-user"></i>
                       </div>
                     </div>
+                  </div>
+                </CardBody>
+              </Card>
+            </Col>
 
-                    <div>
-                      <Link
-                        to="#"
-                        className="btn btn-primary btn-sm"
-                      >
-                        View Details{" "}
-                        <i className="mdi mdi-chevron-right ms-1"></i>
-                      </Link>
+            <Col lg={4}>
+              <Card className="blog-stats-wid">
+                <CardBody>
+                  <div className="d-flex flex-wrap">
+                    <div className="me-3">
+                      <p className="text-muted mb-2">Total Operator</p>
+                      <h5 className="mb-0">86</h5>
                     </div>
 
-                    <div className="mt-4">
-                      <p className="mb-2">Last month</p>
-                      <h5>$2281.04</h5>
+                    <div className="avatar-sm ms-auto">
+                      <div className="avatar-title bg-light rounded-circle text-primary font-size-20">
+                        <i className="bx bxs-group"></i>
+                      </div>
                     </div>
                   </div>
-                </Col>
+                </CardBody>
+              </Card>
+            </Col>
+            <Col lg={4}>
+              <Card className="blog-stats-wid">
+                <CardBody>
+                  <div className="d-flex flex-wrap">
+                    <div className="me-3">
+                      <p className="text-muted mb-2">Total Supervisor</p>
+                      <h5 className="mb-0">4,235</h5>
+                    </div>
 
-                <Col lg="8">
-                  <div id="line-chart" className="apex-charts" dir="ltr">
-                    <ReactApexChart
-                      series={series}
-                      options={this.state.options}
-                      type="line"
-                      height={320}
-                      className="apex-charts"
-                    />
+                    <div className="avatar-sm ms-auto">
+                      <div className="avatar-title bg-light rounded-circle text-primary font-size-20">
+                        <i className="bx bxs-user-plus"></i>
+                      </div>
+                    </div>
                   </div>
-                </Col>
-              </Row>
-            </CardBody>
-          </Card>
+                </CardBody>
+              </Card>
+            </Col>
+          </Row>
+          <Row>
+            <Col lg={4}>
+              <Card className="mini-stats-wid">
+                <CardBody>
+                  <div className="d-flex flex-wrap">
+                    <div className="me-3">
+                      <p className="text-muted mb-2">Total centers</p>
+                      <h5 className="mb-0">120</h5>
+                    </div>
+
+                    <div className="avatar-sm ms-auto">
+                      <div className="avatar-title bg-light rounded-circle text-primary font-size-20">
+                        <i className="bx bxs-building-house"></i>
+                      </div>
+                    </div>
+                  </div>
+                </CardBody>
+              </Card>
+            </Col>
+
+            <Col lg={4}>
+              <Card className="blog-stats-wid">
+                <CardBody>
+                  <div className="d-flex flex-wrap">
+                    <div className="me-3">
+                      <p className="text-muted mb-2">Open CSR Request</p>
+                      <h5 className="mb-0">86</h5>
+                    </div>
+
+                    <div className="avatar-sm ms-auto">
+                      <div className="avatar-title bg-light rounded-circle text-primary font-size-20">
+                        <i className="bx bx-book-content"></i>
+                      </div>
+                    </div>
+                  </div>
+                </CardBody>
+              </Card>
+            </Col>
+            <Col lg={4}>
+              <Card className="blog-stats-wid">
+                <CardBody>
+                  <div className="d-flex flex-wrap">
+                    <div className="me-3">
+                      <p className="text-muted mb-2">Open Request CC</p>
+                      <h5 className="mb-0">4,235</h5>
+                    </div>
+
+                    <div className="avatar-sm ms-auto">
+                      <div className="avatar-title bg-light rounded-circle text-primary font-size-20">
+                        <i className="bx bx-folder-open"></i>
+                      </div>
+                    </div>
+                  </div>
+                </CardBody>
+              </Card>
+            </Col>
+          </Row>
+          <Row>
+            <Col lg={4}>
+              <Card className="mini-stats-wid">
+                <CardBody>
+                  <div className="d-flex flex-wrap">
+                    <div className="me-3">
+                      <p className="text-muted mb-2">Active Device</p>
+                      <h5 className="mb-0">120</h5>
+                    </div>
+
+                    <div className="avatar-sm ms-auto">
+                      <div className="avatar-title bg-light rounded-circle text-primary font-size-20">
+                        <i className="bx bxs-mobile"></i>
+                      </div>
+                    </div>
+                  </div>
+                </CardBody>
+              </Card>
+            </Col>
+
+            <Col lg={4}>
+              <Card className="blog-stats-wid">
+                <CardBody>
+                  <div className="d-flex flex-wrap">
+                    <div className="">
+                      <p className="text-muted mb-2">Closed CSR Request</p>
+                      <h5 className="mb-0">86</h5>
+                    </div>
+
+                    <div className="avatar-sm ms-auto">
+                      <div className="avatar-title bg-light rounded-circle text-primary font-size-20">
+                        <i className="bx bx-book"></i>
+                      </div>
+                    </div>
+                  </div>
+                </CardBody>
+              </Card>
+            </Col>
+            <Col lg={4}>
+              <Card className="blog-stats-wid">
+                <CardBody>
+                  <div className="d-flex flex-wrap">
+                    <div className="">
+                      <p className="text-muted mb-2">Closed Request CC</p>
+                      <h5 className="mb-0">4,235</h5>
+                    </div>
+
+                    <div className="avatar-sm ms-auto">
+                      <div className="avatar-title bg-light rounded-circle text-primary font-size-20">
+                        <i className="bx bx-hdd"></i>
+                      </div>
+                    </div>
+                  </div>
+                </CardBody>
+              </Card>
+            </Col>
+          </Row>
         </Col>
       </React.Fragment>
     );
