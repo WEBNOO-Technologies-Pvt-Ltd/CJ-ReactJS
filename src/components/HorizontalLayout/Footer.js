@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <React.Fragment>
       <footer className="footer">
-        <Container fluid={true}>
+        <Container>
           <Row>
             <Col md={6}>{new Date().getFullYear()} © CJPL.</Col>
             <Col md={6}>

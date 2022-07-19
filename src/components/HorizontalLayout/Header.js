@@ -20,15 +20,16 @@ import megamenuImg from "../../assets/images/megamenu-img.png";
 import logo from "../../assets/images/logo.svg";
 import logoLight from "../../assets/images/logo-light.png";
 import logoLightSvg from "../../assets/images/logo-light.svg";
+import b58adb124ec55ada04130fa5d2518ab0 from "../../assets/images/b58adb124ec55ada04130fa5d2518ab0.png"
 import logoDark from "../../assets/images/logo-dark.png";
 
 // import images
-import github from "../../assets/images/brands/github.png";
-import bitbucket from "../../assets/images/brands/bitbucket.png";
-import dribbble from "../../assets/images/brands/dribbble.png";
-import dropbox from "../../assets/images/brands/dropbox.png";
-import mail_chimp from "../../assets/images/brands/mail_chimp.png";
-import slack from "../../assets/images/brands/slack.png";
+import exam from "../../assets/images/brands/exam.svg";
+import city from "../../assets/images/brands/city.svg";
+import student from "../../assets/images/brands/student.svg";
+import vendors from "../../assets/images/brands/vendors.svg";
+import operator from "../../assets/images/brands/operator.svg";
+import report from "../../assets/images/brands/report.svg";
 
 // Redux Store
 import { toggleRightSidebar } from "../../store/actions";
@@ -97,24 +98,24 @@ class Header extends Component {
     return (
       <React.Fragment>
         <header id="page-topbar">
-          <div className="navbar-header">
+          <div className="navbar-header container">
             <div className="d-flex">
               <div className="navbar-brand-box">
                 <Link to="/" className="logo logo-dark">
                   <span className="logo-sm">
-                    <img src={logo} alt="" height="22" />
+                    <img src={b58adb124ec55ada04130fa5d2518ab0} alt="" height="22" />
                   </span>
                   <span className="logo-lg">
-                    <img src={logoDark} alt="" height="17" />
+                    <img src={b58adb124ec55ada04130fa5d2518ab0} alt="" className="cjpl-logo" />
                   </span>
                 </Link>
 
                 <Link to="/" className="logo logo-light">
                   <span className="logo-sm">
-                    <img src={logoLightSvg} alt="" height="22" />
+                    <img src={b58adb124ec55ada04130fa5d2518ab0} alt="" height="22" />
                   </span>
                   <span className="logo-lg">
-                    <img src={logoLight} alt="" height="19" />
+                    <img src={b58adb124ec55ada04130fa5d2518ab0} alt="" height="19" />
                   </span>
                 </Link>
               </div>
@@ -353,40 +354,40 @@ class Header extends Component {
                     <Row className="no-gutters">
                       <Col>
                         <Link className="dropdown-icon-item" to="#">
-                          <img src={github} alt="Github" />
-                          <span>GitHub</span>
+                          <img src={exam} alt="exam" />
+                          <span>Examination</span>
                         </Link>
                       </Col>
                       <Col>
                         <Link className="dropdown-icon-item" to="#">
-                          <img src={bitbucket} alt="bitbucket" />
-                          <span>Bitbucket</span>
+                          <img src={city} alt="Centres" />
+                          <span>Centres</span>
                         </Link>
                       </Col>
                       <Col>
                         <Link className="dropdown-icon-item" to="#">
-                          <img src={dribbble} alt="dribbble" />
-                          <span>Dribbble</span>
+                          <img src={student} alt="dribbble" />
+                          <span>Students</span>
                         </Link>
                       </Col>
                     </Row>
                     <Row className="no-gutters">
                       <Col>
                         <Link className="dropdown-icon-item" to="#">
-                          <img src={dropbox} alt="dropbox" />
-                          <span>Dropbox</span>
+                          <img src={vendors} alt="vendors" />
+                          <span>Vendors</span>
                         </Link>
                       </Col>
                       <Col>
                         <Link className="dropdown-icon-item" to="#">
-                          <img src={mail_chimp} alt="mail_chimp" />
-                          <span>Mail Chimp</span>
+                          <img src={operator} alt="operator" />
+                          <span>Operators</span>
                         </Link>
                       </Col>
                       <Col>
                         <Link className="dropdown-icon-item" to="#">
-                          <img src={slack} alt="slack" />
-                          <span>Slack</span>
+                          <img src={report} alt="report" />
+                          <span>Reports</span>
                         </Link>
                       </Col>
                     </Row>

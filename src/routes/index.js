@@ -171,7 +171,7 @@ import BlogDetails from "../pages/Blog/BlogDetails";
 
 const authProtectedRoutes = [
 
-  { path: "/dashboard", component: Dashboard },
+ // { path: "/dashboard", component: Dashboard },
   { path: "/dashboard-saas", component: DashboardSaas },
   { path: "/dashboard-crypto", component: DashboardCrypto },
   { path: "/dashboard-blog", component: DashboardBlog },
@@ -321,7 +321,7 @@ const authProtectedRoutes = [
 const publicRoutes = [
 
   
-  
+  { path: "/dashboard", component: Dashboard },
   
   { path: "/logout", component: Logout },
   { path: "/login", component: Login },
