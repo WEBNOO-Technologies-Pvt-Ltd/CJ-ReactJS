@@ -95,11 +95,10 @@ const LatestTranaction = () => {
                               <FormGroup className="mt-3 mb-0">
                                 <Label>Exam Date</Label>
                                 <select className="form-control select2-search-disable">
-                                  <option value="BTC" defaultValue>
-                                    Bitcoin
+                                  <option value="" defaultValue>
+                                    
                                   </option>
-                                  <option value="ETH">Ethereum</option>
-                                  <option value="LTC">litecoin</option>
+                                  
                                 </select>
                               </FormGroup>
                             </Col>
@@ -108,10 +107,10 @@ const LatestTranaction = () => {
                               <FormGroup className="mt-3 mb-0">
                                 <Label>Exam Shift</Label>
                                 <select className="form-control select2-search-disable">
-                                  <option value="BU" defaultValue>
-                                    Buy
+                                  <option value="" defaultValue>
+                                    
                                   </option>
-                                  <option value="SE">Sell</option>
+                                  
                                 </select>
                               </FormGroup>
                             </Col>
@@ -120,10 +119,10 @@ const LatestTranaction = () => {
                               <FormGroup className="mt-3 mb-0">
                                 <Label>Exam Center</Label>
                                 <select className="form-control select2-search-disable">
-                                  <option value="CO" defaultValue>
-                                    Completed
+                                  <option value="" defaultValue>
+                                    
                                   </option>
-                                  <option value="PE">Pending</option>
+                               
                                 </select>
                               </FormGroup>
                             </Col>
