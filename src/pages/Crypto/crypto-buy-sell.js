@@ -31,43 +31,434 @@ class CryptoWallet extends Component {
     this.state = {
       activeTab: "1",
       isMenu: false,
-      columns : [{
+      columns_auth : [{
         dataField: 'idno',
-        text: 'Id No'
+        text: 'OP Name'
       },{
-        dataField: 'pdate',
-        text: 'Date'
+        dataField: 'Centre Code',
+        text: 'Centre ID'
       }, {
         dataField: 'type',
-        text: 'Type'
+        text: 'Unique ID'
       }, {
         dataField: 'coin',
-        text: 'Currency'
+        text: 'Mobile'
       },{
         dataField: 'amount',
-        text: 'Amount'
+        text: 'Address'
       },{
         dataField: 'valueInUsd',
-        text: 'value in USD'
-      }],
+        text: 'State'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'City'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Status'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Vendor Name'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Vendor Code'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Exam date'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Exam Name'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Centre Name'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Previous Exam Date'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Previous Exam Name'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Previous Centre Name'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Centre City'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'CSR Remark'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Created At'
+      },
+    ],
+    columns_changed_centre : [{
+      dataField: 'idno',
+      text: 'OP Name'
+    },{
+      dataField: 'Centre Code',
+      text: 'Centre ID'
+    }, {
+      dataField: 'type',
+      text: 'Unique ID'
+    }, {
+      dataField: 'coin',
+      text: 'Mobile'
+    },{
+      dataField: 'amount',
+      text: 'Address'
+    },{
+      dataField: 'valueInUsd',
+      text: 'State'
+    },
+    {
+      dataField: 'valueInUsd',
+      text: 'City'
+    },
+    {
+      dataField: 'valueInUsd',
+      text: 'Status'
+    },
+    {
+      dataField: 'valueInUsd',
+      text: 'Vendor Name'
+    },
+    {
+      dataField: 'valueInUsd',
+      text: 'Vendor Code'
+    },
+    {
+      dataField: 'valueInUsd',
+      text: 'Exam date'
+    },
+    {
+      dataField: 'valueInUsd',
+      text: 'Exam Name'
+    },
+    {
+      dataField: 'valueInUsd',
+      text: 'Centre Name'
+    },
+    {
+      dataField: 'valueInUsd',
+      text: 'Previous Exam Date'
+    },
+    {
+      dataField: 'valueInUsd',
+      text: 'Previous Exam Name'
+    },
+    {
+      dataField: 'valueInUsd',
+      text: 'Previous Centre Name'
+    },
+    {
+      dataField: 'valueInUsd',
+      text: 'Centre City'
+    },
+    {
+      dataField: 'valueInUsd',
+      text: 'CSR Remark'
+    },
+    {
+      dataField: 'valueInUsd',
+      text: 'Created At'
+    },
+  ],
+      columns_csr : [{
+        dataField: 'idno',
+        text: 'Centre Name'
+      },{
+        dataField: 'Centre Code',
+        text: 'Centre ID'
+      }, {
+        dataField: 'type',
+        text: 'Shift ID'
+      }, {
+        dataField: 'coin',
+        text: 'Shift Status'
+      },{
+        dataField: 'amount',
+        text: 'Shift Time'
+      },{
+        dataField: 'valueInUsd',
+        text: 'Shift NO.'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Supervisor NO.'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Supervisor Name'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Supervisor System ID'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Ticket ID'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Manual List Answered By Supervisor'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Manual Present Count'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Request Type'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Monitoring Admin Status'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Action'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Centre State'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Centre City'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'CSR Remark'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Created At'
+      },
+    ],
+      columns_device : [{
+        dataField: 'idno',
+        text: '#'
+      },{
+        dataField: 'Name',
+        text: 'Device ID'
+      }, {
+        dataField: 'type',
+        text: 'Device Model'
+      }, {
+        dataField: 'coin',
+        text: 'OP ID'
+      },{
+        dataField: 'amount',
+        text: 'IMEI NO'
+      },{
+        dataField: 'valueInUsd',
+        text: 'Location'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Latitude'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Longitude'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Date Created'
+      }
+    ],
+      columns_student : [{
+        dataField: 'idno',
+        text: '#'
+      },{
+        dataField: 'Name',
+        text: 'Enrolment ID'
+      }, {
+        dataField: 'type',
+        text: 'Student Name'
+      }, {
+        dataField: 'coin',
+        text: 'Attendance'
+      },{
+        dataField: 'amount',
+        text: 'Photo'
+      },{
+        dataField: 'valueInUsd',
+        text: 'Biometric'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Centre ID'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Shift ID'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Date Created'
+      }
+    ],
+      columns_supervisor : [{
+        dataField: 'idno',
+        text: 'SV ID'
+      },{
+        dataField: 'Name',
+        text: '	Name'
+      }, {
+        dataField: 'type',
+        text: 'Phone Number'
+      }, {
+        dataField: 'coin',
+        text: 'Role'
+      },{
+        dataField: 'amount',
+        text: 'Vendor Name'
+      },{
+        dataField: 'valueInUsd',
+        text: 'Centre ID'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'User Status'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Battery'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'IMEI NO.'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Device ID'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Device Model'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Session Status'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Date Created'
+      }
+    ],
+      columns_operator : [{
+        dataField: 'idno',
+        text: 'OP ID'
+      },{
+        dataField: 'Centre Code',
+        text: '	Name'
+      }, {
+        dataField: 'type',
+        text: 'Phone Number'
+      }, {
+        dataField: 'coin',
+        text: 'Role'
+      },{
+        dataField: 'amount',
+        text: 'Vendor Name'
+      },{
+        dataField: 'valueInUsd',
+        text: 'Centre ID'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'User Status'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Battery'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'IMEI NO.'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Device ID'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Device Model'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Session Status'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Date Created'
+      }
+    ],
+      columns : [{
+        dataField: 'idno',
+        text: 'Centre Name'
+      },{
+        dataField: 'Centre Code',
+        text: 'Centre Code'
+      }, {
+        dataField: 'type',
+        text: 'Shift Number'
+      }, {
+        dataField: 'coin',
+        text: 'Shift ID'
+      },{
+        dataField: 'amount',
+        text: 'Shift Time'
+      },{
+        dataField: 'valueInUsd',
+        text: 'Shift Status'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Total Student'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Present'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Absent'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Duplicate'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Operator Count'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Supervisor Count'
+      },
+      {
+        dataField: 'valueInUsd',
+        text: 'Device Count'
+      }
+    ],
       productData : [
-        { id: 1, idno:"#SK3226", pdate : "03 Mar, 2020",type:"Buy",coin:"Litecoin",amount:"0.00413 LTC",valueInUsd:"$ 1773.01"},
-        { id: 2, idno:"#SK3336", pdate : "03 Mar, 2020",type:"Sell",coin:"Ethereum",amount:"0.00413 ETH",valueInUsd:"$ 1773.01"},
-        { id: 3, idno:"#SK3226", pdate : "13 Jun, 2020",type:"Sell",coin:"Litecoin",amount:"0.00413 LTC",valueInUsd:"$ 1773.01"},
-        { id: 4, idno:"#SK3226", pdate : "03 Mar, 2020",type:"Buy",coin:"Ethereum",amount:"0.00413 ETH",valueInUsd:"$ 1773.01"},
-        { id: 5, idno:"#SK3226", pdate : "23 Mar, 2020",type:"Buy",coin:"Litecoin",amount:"0.00413 ETH",valueInUsd:"$ 1773.01"},
-        { id: 6, idno:"#SK3116", pdate : "03 Mar, 2020",type:"Sell",coin:"Ethereum",amount:"0.00413 LTC",valueInUsd:"$ 1773.01"},
-        { id: 7, idno:"#SK3336", pdate : "13 Mar, 2020",type:"Buy",coin:"Ethereum",amount:"0.00413 ETH",valueInUsd:"$ 1773.01"},
-        { id: 8, idno:"#SK3226", pdate : "03 Mar, 2020",type:"Buy",coin:"Litecoin",amount:"0.00413 ETH",valueInUsd:"$ 1773.01"},
-        { id: 9, idno:"#SK3226", pdate : "23 Mar, 2020",type:"Buy",coin:"Litecoin",amount:"0.00413 ETH",valueInUsd:"$ 1773.01"},
-        { id: 10, idno:"#SK3226", pdate : "03 Mar, 2020",type:"Sell",coin:"Litecoin",amount:"0.00413 ETH",valueInUsd:"$ 1773.01"},
-        { id: 11, idno:"#SK3226", pdate : "08 Mar, 2020",type:"Sell",coin:"Litecoin",amount:"0.00413 ETH",valueInUsd:"$ 1773.01"},
-        { id: 12, idno:"#SK3226", pdate : "03 Mar, 2020",type:"Buy",coin:"Litecoin",amount:"0.00413 ETH",valueInUsd:"$ 1773.01"},
-        { id: 13, idno:"#SK3336", pdate : "03 Mar, 2020",type:"Buy",coin:"Ethereum",amount:"0.00413 LTC",valueInUsd:"$ 1773.01"},
-        { id: 14, idno:"#SK3336", pdate : "07 Mar, 2020",type:"Sell",coin:"Litecoin",amount:"0.00413 ETH",valueInUsd:"$ 1773.01"},
-        { id: 15, idno:"#SK3226", pdate : "13 Mar, 2020",type:"Buy",coin:"Litecoin",amount:"0.00413 ETH",valueInUsd:"$ 1773.01"},
-        { id: 16, idno:"#SK3226", pdate : "03 Mar, 2020",type:"Buy",coin:"Ethereum",amount:"0.00413 ETH",valueInUsd:"$ 1773.01"},
-        { id: 17, idno:"#SK3336", pdate : "03 Mar, 2020",type:"Buy",coin:"Litecoin",amount:"0.00413 LTC",valueInUsd:"$ 1773.01"},
+        { id: 1, idno:"", pdate : "",type:"",coin:"",amount:"",valueInUsd:""},
+        { id: 2, idno:"", pdate : "",type:"",coin:"",amount:"",valueInUsd:""},
+        
         ]
     };
     
@@ -121,7 +512,7 @@ class CryptoWallet extends Component {
                               this.toggleTab("1");
                             }}
                           >
-                            center
+                            Centre
                           </NavLink>
                         </NavItem>
                         <NavItem>
@@ -239,19 +630,19 @@ class CryptoWallet extends Component {
                         </TabPane>
 
                         <TabPane tabId="2">
-                        <BootstrapTable keyField='id' data={ this.state.productData } columns={ this.state.columns } pagination={ paginationFactory() } />
+                        <BootstrapTable keyField='id' data={ this.state.productData } columns={ this.state.columns_operator} pagination={ paginationFactory() } />
                         </TabPane>
 
                         <TabPane tabId="3">
-                        <BootstrapTable keyField='id' data={ this.state.productData } columns={ this.state.columns } pagination={ paginationFactory() } />
+                        <BootstrapTable keyField='id' data={ this.state.productData } columns={ this.state.columns_supervisor } pagination={ paginationFactory() } />
                         </TabPane>
 
                         <TabPane tabId="4">
-                        <BootstrapTable keyField='id' data={ this.state.productData } columns={ this.state.columns } pagination={ paginationFactory() } />
+                        <BootstrapTable keyField='id' data={ this.state.productData } columns={ this.state.columns_device } pagination={ paginationFactory() } />
                         </TabPane>
 
                         <TabPane tabId="5">
-                        <BootstrapTable keyField='id' data={ this.state.productData } columns={ this.state.columns } pagination={ paginationFactory() } />
+                        <BootstrapTable keyField='id' data={ this.state.productData } columns={ this.state.columns_student} pagination={ paginationFactory() } />
                         </TabPane>
 
                         <TabPane tabId="6">
@@ -259,15 +650,15 @@ class CryptoWallet extends Component {
                         </TabPane>
 
                         <TabPane tabId="7">
-                        <BootstrapTable keyField='id' data={ this.state.productData } columns={ this.state.columns } pagination={ paginationFactory() } />
+                        <BootstrapTable keyField='id' data={ this.state.productData } columns={ this.state.columns_csr} pagination={ paginationFactory() } />
                         </TabPane>
 
                         <TabPane tabId="8">
-                        <BootstrapTable keyField='id' data={ this.state.productData } columns={ this.state.columns } pagination={ paginationFactory() } />
+                        <BootstrapTable keyField='id' data={ this.state.productData } columns={ this.state.columns_auth} pagination={ paginationFactory() } />
                         </TabPane>
 
                         <TabPane tabId="9">
-                        <BootstrapTable keyField='id' data={ this.state.productData } columns={ this.state.columns } pagination={ paginationFactory() } />
+                        <BootstrapTable keyField='id' data={ this.state.productData } columns={ this.state.columns_changed_centre } pagination={ paginationFactory() } />
                         </TabPane>
 
 

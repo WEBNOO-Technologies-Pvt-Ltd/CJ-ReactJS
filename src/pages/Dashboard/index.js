@@ -103,12 +103,12 @@ class Dashboard extends Component {
 
   render() {
     //meta title
-    document.title = "CJPL Dashboard";
+    document.title = "CJPL Exam Leaderboard";
 
     return (
       <React.Fragment>
         <div className="page-content">
-          <Container fluid>
+          <Container>
             {/* Render Breadcrumb */}
             
            
