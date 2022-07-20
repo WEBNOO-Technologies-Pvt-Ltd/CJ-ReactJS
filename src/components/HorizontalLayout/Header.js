@@ -356,42 +356,42 @@ class Header extends Component {
                   <div className="px-lg-2">
                     <Row className="no-gutters">
                       <Col>
-                        <Link className="dropdown-icon-item" to={"/" + configData.CJPL_URL + "admin/exams"}>
+                        <a className="dropdown-icon-item" href={configData.CJPL_URL + "admin/exams"}>
                           <img src={exam} alt="exam" />
                           <span>Examination</span>
-                        </Link>
+                        </a>
                       </Col>
                       <Col>
-                        <Link className="dropdown-icon-item" to={"/" + configData.CJPL_URL + "admin/centres"}>
+                        <a className="dropdown-icon-item" href={configData.CJPL_URL + "admin/centres"}>
                           <img src={city} alt="Centres" />
                           <span>Centres</span>
-                        </Link>
+                        </a>
                       </Col>
                       <Col>
-                        <Link className="dropdown-icon-item" to={"/" + configData.CJPL_URL + "admin/students"}>
+                        <a className="dropdown-icon-item" href={configData.CJPL_URL + "admin/students"}>
                           <img src={student} alt="dribbble" />
                           <span>Students</span>
-                        </Link>
+                        </a>
                       </Col>
                     </Row>
                     <Row className="no-gutters">
                       <Col>
-                        <Link className="dropdown-icon-item" to={"/" + configData.CJPL_URL + "admin/vendors"}>
+                        <a className="dropdown-icon-item" href={configData.CJPL_URL + "admin/vendors"}>
                           <img src={vendors} alt="vendors" />
                           <span>Vendors</span>
-                        </Link>
+                        </a>
                       </Col>
                       <Col>
-                        <Link className="dropdown-icon-item" to={"/" + configData.CJPL_URL + "admin/operators"}>
+                        <a className="dropdown-icon-item" href={configData.CJPL_URL + "admin/operators"}>
                           <img src={operator} alt="operator" />
                           <span>Operators</span>
-                        </Link>
+                        </a>
                       </Col>
                       <Col>
-                        <Link className="dropdown-icon-item" to={"/" + configData.CJPL_URL + "admin/exams"}>
+                        <a className="dropdown-icon-item" href={configData.CJPL_URL + "admin/reports"}>
                           <img src={report} alt="report" />
                           <span>Reports</span>
-                        </Link>
+                        </a>
                       </Col>
                     </Row>
                   </div>
