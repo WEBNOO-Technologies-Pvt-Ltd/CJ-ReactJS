@@ -31,6 +31,9 @@ import vendors from "../../assets/images/brands/vendors.svg";
 import operator from "../../assets/images/brands/operator.svg";
 import report from "../../assets/images/brands/report.svg";
 
+//config url
+import configData from "./../../config.js";
+
 // Redux Store
 import { toggleRightSidebar } from "../../store/actions";
 
@@ -101,7 +104,7 @@ class Header extends Component {
           <div className="navbar-header container">
             <div className="d-flex">
               <div className="navbar-brand-box">
-                <Link to="/" className="logo logo-dark">
+                <Link to={"/" + configData.CJPL_URL} className="logo logo-dark">
                   <span className="logo-sm">
                     <img src={b58adb124ec55ada04130fa5d2518ab0} alt="" height="22" />
                   </span>
@@ -353,19 +356,19 @@ class Header extends Component {
                   <div className="px-lg-2">
                     <Row className="no-gutters">
                       <Col>
-                        <Link className="dropdown-icon-item" to="#">
+                        <Link className="dropdown-icon-item" to={"/" + configData.CJPL_URL + "admin/exams"}>
                           <img src={exam} alt="exam" />
                           <span>Examination</span>
                         </Link>
                       </Col>
                       <Col>
-                        <Link className="dropdown-icon-item" to="#">
+                        <Link className="dropdown-icon-item" to={"/" + configData.CJPL_URL + "admin/centres"}>
                           <img src={city} alt="Centres" />
                           <span>Centres</span>
                         </Link>
                       </Col>
                       <Col>
-                        <Link className="dropdown-icon-item" to="#">
+                        <Link className="dropdown-icon-item" to={"/" + configData.CJPL_URL + "admin/students"}>
                           <img src={student} alt="dribbble" />
                           <span>Students</span>
                         </Link>
@@ -373,19 +376,19 @@ class Header extends Component {
                     </Row>
                     <Row className="no-gutters">
                       <Col>
-                        <Link className="dropdown-icon-item" to="#">
+                        <Link className="dropdown-icon-item" to={"/" + configData.CJPL_URL + "admin/vendors"}>
                           <img src={vendors} alt="vendors" />
                           <span>Vendors</span>
                         </Link>
                       </Col>
                       <Col>
-                        <Link className="dropdown-icon-item" to="#">
+                        <Link className="dropdown-icon-item" to={"/" + configData.CJPL_URL + "admin/operators"}>
                           <img src={operator} alt="operator" />
                           <span>Operators</span>
                         </Link>
                       </Col>
                       <Col>
-                        <Link className="dropdown-icon-item" to="#">
+                        <Link className="dropdown-icon-item" to={"/" + configData.CJPL_URL + "admin/exams"}>
                           <img src={report} alt="report" />
                           <span>Reports</span>
                         </Link>

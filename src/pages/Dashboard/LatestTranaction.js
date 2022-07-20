@@ -2,17 +2,8 @@ import React, { Component } from "react"
 import PropTypes from "prop-types"
 import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
-import { isEmpty, size } from "lodash"
-import BootstrapTable from "react-bootstrap-table-next"
-import paginationFactory, {
-  PaginationProvider,
-  PaginationListStandalone,
-} from "react-bootstrap-table2-paginator"
-import ToolkitProvider from 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit';
-
-import { Link } from "react-router-dom"
-//Date Picker
-import DatePicker from "react-datepicker"
+import { useEffect, useState } from "react";
+import axios from "axios";
 import "react-datepicker/dist/react-datepicker.css"
 
 import {
@@ -42,9 +33,42 @@ import {
   deleteOrder
 } from "store/actions"
 
-import EcommerceOrdersModal from "../Ecommerce/EcommerceOrders/EcommerceOrdersModal"
-
 const LatestTranaction = () => {
+
+  const [examination, setExamination] = useState([]);
+  const [examDate, setExamDate] = useState([]);
+  const [examShift, setExamShift] = useState([]);
+  const [examCentre, setExamCentre] = useState([]);
+
+  //Fetch examination data
+    useEffect(() => {
+      async function fetchExam() {
+        let axiosConfig = {
+          headers: {
+              //'Content-Type': 'application/json',
+              'authtoken' : 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiQXNoaXNoIiwibmFtZSI6IkFzaGlzaCIsInBhc3N3b3JkIjpudWxsLCJBUElfVElNRSI6MTY1ODE1MDYzMn0.7LjpIhZbO-jNkchF3lRqEe8ZQECx_Hp7YERPrQ9gOqE'
+              
+          }
+        };
+        
+        axios.get('https://cjpl.webnoo.com/api/Leaderboard/examdata', axiosConfig)
+        .then((res) => {
+          console.log("RESPONSE RECEIVED: ", res);
+          setExamination(res);
+        })
+        .catch((err) => {
+          console.log("AXIOS ERROR: ", err);
+        })
+     /**  try {
+        let item = await axios.get(`https://naksheadmin.webnoo.in.net/api/blogs`)
+        setExamination(item);
+        console.log(item);
+      } catch (error) {
+        console.log(error);
+      } **/
+      }
+      fetchExam();
+  }, []);
   
     return (
       <React.Fragment>
@@ -59,11 +83,10 @@ const LatestTranaction = () => {
                               <FormGroup className="mt-3 mb-0">
                                 <Label>Select Exam</Label>
                                 <select className="form-control select2-search-disable">
-                                  <option value="BTC" defaultValue>
-                                    Bitcoin
-                                  </option>
-                                  <option value="ETH">Ethereum</option>
-                                  <option value="LTC">litecoin</option>
+                                <option value="Select Exam" disabled defaultValue>Select Exam</option>
+                                  {examination.map(item => (
+                                   <option key={item.id} value={item.id}> {item.exam_code}</option>
+                                   ))}
                                 </select>
                               </FormGroup>
                             </Col>
