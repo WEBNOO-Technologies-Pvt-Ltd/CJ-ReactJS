@@ -22,7 +22,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 //import Charts
-import StackedColumnChart from "./StackedColumnChart";
+//import StackedColumnChart from "./StackedColumnChart";
 
 import modalimage1 from "../../assets/images/product/img-7.png";
 import modalimage2 from "../../assets/images/product/img-4.png";
