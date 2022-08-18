@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import Earning from "./../Dashboard-saas/earning";
+import Earning from "./../Dashboard-saas/earning"; 
 import SalesAnalytics from "./../Dashboard-saas/sales-analytics";
 import CryptoWallet from "./../Crypto/crypto-buy-sell";
 import {
@@ -22,7 +22,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 //import Charts
-import StackedColumnChart from "./StackedColumnChart";
+//import StackedColumnChart from "./StackedColumnChart";
 
 import modalimage1 from "../../assets/images/product/img-7.png";
 import modalimage2 from "../../assets/images/product/img-4.png";
@@ -118,13 +118,7 @@ class Dashboard extends Component {
               </Col>
             </Row>
 
-            <Row>
-              {/* earning */}
-              <Earning />
-
-              {/* sales anytics */}
-              <SalesAnalytics />
-            </Row>
+           
             
             <CryptoWallet />
           </Container>
