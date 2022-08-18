@@ -68,178 +68,182 @@ class Earning extends Component {
     return (
       <React.Fragment>
         <Col xl="8">
-        <Row>
-            <Col lg={4}>
-              <Card className="mini-stats-wid">
-                <CardBody>
-                  <div className="d-flex flex-wrap">
-                    <div className="me-3">
-                      <p className="text-muted mb-2">Total Students</p>
-                      <h5 className="mb-0">120</h5>
-                    </div>
+       
+       <Row>
+       
+           <Col lg={4}>
+             <Card className="mini-stats-wid">
+               <CardBody>
+                 <div className="d-flex flex-wrap">
+                   <div className="me-3">
+                     <p className="text-muted mb-2">Total Students</p>
+                     <h5 className="mb-0">{this.props.counters.student_count}</h5>
+                   </div>
 
-                    <div className="avatar-sm ms-auto">
-                      <div className="avatar-title bg-light rounded-circle text-primary font-size-20">
-                        <i className="bx bxs-user"></i>
-                      </div>
-                    </div>
-                  </div>
-                </CardBody>
-              </Card>
-            </Col>
+                   <div className="avatar-sm ms-auto">
+                     <div className="avatar-title bg-light rounded-circle text-primary font-size-20">
+                       <i className="bx bxs-user"></i>
+                     </div>
+                   </div>
+                 </div>
+               </CardBody>
+             </Card>
+           </Col>
 
-            <Col lg={4}>
-              <Card className="blog-stats-wid">
-                <CardBody>
-                  <div className="d-flex flex-wrap">
-                    <div className="me-3">
-                      <p className="text-muted mb-2">Total Operator</p>
-                      <h5 className="mb-0">86</h5>
-                    </div>
+           <Col lg={4}>
+             <Card className="blog-stats-wid">
+               <CardBody>
+                 <div className="d-flex flex-wrap">
+                   <div className="me-3">
+                     <p className="text-muted mb-2">Total Operator</p>
+                     <h5 className="mb-0">{this.props.counters.operator_count}</h5>
+                   </div>
 
-                    <div className="avatar-sm ms-auto">
-                      <div className="avatar-title bg-light rounded-circle text-primary font-size-20">
-                        <i className="bx bxs-group"></i>
-                      </div>
-                    </div>
-                  </div>
-                </CardBody>
-              </Card>
-            </Col>
-            <Col lg={4}>
-              <Card className="blog-stats-wid">
-                <CardBody>
-                  <div className="d-flex flex-wrap">
-                    <div className="me-3">
-                      <p className="text-muted mb-2">Total Supervisor</p>
-                      <h5 className="mb-0">4,235</h5>
-                    </div>
+                   <div className="avatar-sm ms-auto">
+                     <div className="avatar-title bg-light rounded-circle text-primary font-size-20">
+                       <i className="bx bxs-group"></i>
+                     </div>
+                   </div>
+                 </div>
+               </CardBody>
+             </Card>
+           </Col>
+           <Col lg={4}>
+             <Card className="blog-stats-wid">
+               <CardBody>
+                 <div className="d-flex flex-wrap">
+                   <div className="me-3">
+                     <p className="text-muted mb-2">Total Supervisor</p>
+                     <h5 className="mb-0">{this.props.counters.supervisor_count}</h5>
+                   </div>
 
-                    <div className="avatar-sm ms-auto">
-                      <div className="avatar-title bg-light rounded-circle text-primary font-size-20">
-                        <i className="bx bxs-user-plus"></i>
-                      </div>
-                    </div>
-                  </div>
-                </CardBody>
-              </Card>
-            </Col>
-          </Row>
-          <Row>
-            <Col lg={4}>
-              <Card className="mini-stats-wid">
-                <CardBody>
-                  <div className="d-flex flex-wrap">
-                    <div className="me-3">
-                      <p className="text-muted mb-2">Total centers</p>
-                      <h5 className="mb-0">120</h5>
-                    </div>
+                   <div className="avatar-sm ms-auto">
+                     <div className="avatar-title bg-light rounded-circle text-primary font-size-20">
+                       <i className="bx bxs-user-plus"></i>
+                     </div>
+                   </div>
+                 </div>
+               </CardBody>
+             </Card>
+           </Col>
+         </Row>
+         <Row>
+           <Col lg={4}>
+             <Card className="mini-stats-wid">
+               <CardBody>
+                 <div className="d-flex flex-wrap">
+                   <div className="me-3">
+                     <p className="text-muted mb-2">Total centers</p>
+                     <h5 className="mb-0">{this.props.counters.center_count}</h5>
+                   </div>
 
-                    <div className="avatar-sm ms-auto">
-                      <div className="avatar-title bg-light rounded-circle text-primary font-size-20">
-                        <i className="bx bxs-building-house"></i>
-                      </div>
-                    </div>
-                  </div>
-                </CardBody>
-              </Card>
-            </Col>
+                   <div className="avatar-sm ms-auto">
+                     <div className="avatar-title bg-light rounded-circle text-primary font-size-20">
+                       <i className="bx bxs-building-house"></i>
+                     </div>
+                   </div>
+                 </div>
+               </CardBody>
+             </Card>
+           </Col>
 
-            <Col lg={4}>
-              <Card className="blog-stats-wid">
-                <CardBody>
-                  <div className="d-flex flex-wrap">
-                    <div className="me-3">
-                      <p className="text-muted mb-2">Open CSR Request</p>
-                      <h5 className="mb-0">86</h5>
-                    </div>
+           <Col lg={4}>
+             <Card className="blog-stats-wid">
+               <CardBody>
+                 <div className="d-flex flex-wrap">
+                   <div className="me-3">
+                     <p className="text-muted mb-2">Open CSR Request</p>
+                     <h5 className="mb-0">{this.props.counters.open_csr_requset_count}</h5>
+                   </div>
 
-                    <div className="avatar-sm ms-auto">
-                      <div className="avatar-title bg-light rounded-circle text-primary font-size-20">
-                        <i className="bx bx-book-content"></i>
-                      </div>
-                    </div>
-                  </div>
-                </CardBody>
-              </Card>
-            </Col>
-            <Col lg={4}>
-              <Card className="blog-stats-wid">
-                <CardBody>
-                  <div className="d-flex flex-wrap">
-                    <div className="me-3">
-                      <p className="text-muted mb-2">Open Request CC</p>
-                      <h5 className="mb-0">4,235</h5>
-                    </div>
+                   <div className="avatar-sm ms-auto">
+                     <div className="avatar-title bg-light rounded-circle text-primary font-size-20">
+                       <i className="bx bx-book-content"></i>
+                     </div>
+                   </div>
+                 </div>
+               </CardBody>
+             </Card>
+           </Col>
+           <Col lg={4}>
+             <Card className="blog-stats-wid">
+               <CardBody>
+                 <div className="d-flex flex-wrap">
+                   <div className="me-3">
+                     <p className="text-muted mb-2">Open Request CC</p>
+                     <h5 className="mb-0">{this.props.counters.open_change_center_requset_count}</h5>
+                   </div>
 
-                    <div className="avatar-sm ms-auto">
-                      <div className="avatar-title bg-light rounded-circle text-primary font-size-20">
-                        <i className="bx bx-folder-open"></i>
-                      </div>
-                    </div>
-                  </div>
-                </CardBody>
-              </Card>
-            </Col>
-          </Row>
-          <Row>
-            <Col lg={4}>
-              <Card className="mini-stats-wid">
-                <CardBody>
-                  <div className="d-flex flex-wrap">
-                    <div className="me-3">
-                      <p className="text-muted mb-2">Active Device</p>
-                      <h5 className="mb-0">120</h5>
-                    </div>
+                   <div className="avatar-sm ms-auto">
+                     <div className="avatar-title bg-light rounded-circle text-primary font-size-20">
+                       <i className="bx bx-folder-open"></i>
+                     </div>
+                   </div>
+                 </div>
+               </CardBody>
+             </Card>
+           </Col>
+         </Row>
+         <Row>
+           <Col lg={4}>
+             <Card className="mini-stats-wid">
+               <CardBody>
+                 <div className="d-flex flex-wrap">
+                   <div className="me-3">
+                     <p className="text-muted mb-2">Active Device</p>
+                     <h5 className="mb-0">{this.props.counters.active_device_count}</h5>
+                   </div>
 
-                    <div className="avatar-sm ms-auto">
-                      <div className="avatar-title bg-light rounded-circle text-primary font-size-20">
-                        <i className="bx bxs-mobile"></i>
-                      </div>
-                    </div>
-                  </div>
-                </CardBody>
-              </Card>
-            </Col>
+                   <div className="avatar-sm ms-auto">
+                     <div className="avatar-title bg-light rounded-circle text-primary font-size-20">
+                       <i className="bx bxs-mobile"></i>
+                     </div>
+                   </div>
+                 </div>
+               </CardBody>
+             </Card>
+           </Col>
 
-            <Col lg={4}>
-              <Card className="blog-stats-wid">
-                <CardBody>
-                  <div className="d-flex flex-wrap">
-                    <div className="">
-                      <p className="text-muted mb-2">Closed CSR Request</p>
-                      <h5 className="mb-0">86</h5>
-                    </div>
+           <Col lg={4}>
+             <Card className="blog-stats-wid">
+               <CardBody>
+                 <div className="d-flex flex-wrap">
+                   <div className="">
+                     <p className="text-muted mb-2">Closed CSR Request</p>
+                     <h5 className="mb-0">{this.props.counters.close_csr_requset_count}</h5>
+                   </div>
 
-                    <div className="avatar-sm ms-auto">
-                      <div className="avatar-title bg-light rounded-circle text-primary font-size-20">
-                        <i className="bx bx-book"></i>
-                      </div>
-                    </div>
-                  </div>
-                </CardBody>
-              </Card>
-            </Col>
-            <Col lg={4}>
-              <Card className="blog-stats-wid">
-                <CardBody>
-                  <div className="d-flex flex-wrap">
-                    <div className="">
-                      <p className="text-muted mb-2">Closed Request CC</p>
-                      <h5 className="mb-0">4,235</h5>
-                    </div>
+                   <div className="avatar-sm ms-auto">
+                     <div className="avatar-title bg-light rounded-circle text-primary font-size-20">
+                       <i className="bx bx-book"></i>
+                     </div>
+                   </div>
+                 </div>
+               </CardBody>
+             </Card>
+           </Col>
+           <Col lg={4}>
+             <Card className="blog-stats-wid">
+               <CardBody>
+                 <div className="d-flex flex-wrap">
+                   <div className="">
+                     <p className="text-muted mb-2">Closed Request CC</p>
+                     <h5 className="mb-0">{this.props.counters.close_change_center_requset_count}</h5>
+                   </div>
 
-                    <div className="avatar-sm ms-auto">
-                      <div className="avatar-title bg-light rounded-circle text-primary font-size-20">
-                        <i className="bx bx-hdd"></i>
-                      </div>
-                    </div>
-                  </div>
-                </CardBody>
-              </Card>
-            </Col>
-          </Row>
-        </Col>
+                   <div className="avatar-sm ms-auto">
+                     <div className="avatar-title bg-light rounded-circle text-primary font-size-20">
+                       <i className="bx bx-hdd"></i>
+                     </div>
+                   </div>
+                 </div>
+               </CardBody>
+             </Card>
+           </Col>
+           
+         </Row>
+       
+       </Col>
       </React.Fragment>
     );
   }

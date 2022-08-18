@@ -4,6 +4,8 @@ import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Earning from "./../Dashboard-saas/earning";
+import SalesAnalytics from "./../Dashboard-saas/sales-analytics";
 import "react-datepicker/dist/react-datepicker.css"
 
 import {
@@ -39,37 +41,55 @@ const LatestTranaction = () => {
   const [examDate, setExamDate] = useState([]);
   const [examShift, setExamShift] = useState([]);
   const [examCentre, setExamCentre] = useState([]);
+  const [counters, setCounters] = useState([]);
+  //selcted value
+  const [selectedExam,setSelectedExam] = useState("");
+  const [selectedExamDate,setSelectedExamDate] = useState("");
+  const [selectedExamShift,setSelectedExamShift] = useState("");
+  const [selectedCentre,setSelectedCentre] = useState("");
+//Fetch examination data
+   useEffect(() => {
+    async function fetchExams() {
+     try {
+      let item = await axios.get(`https://cjpl.webnoo.com/api/Leaderboard/examdata`)
+      setExamination(item.data.data);
+      console.log(item.data.data);
+     } catch (error) {
+      console.log(error);
+     }
+    }
+    fetchExams();
+}, []);
 
-  //Fetch examination data
-    useEffect(() => {
-      async function fetchExam() {
-        let axiosConfig = {
-          headers: {
-              //'Content-Type': 'application/json',
-              'authtoken' : 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiQXNoaXNoIiwibmFtZSI6IkFzaGlzaCIsInBhc3N3b3JkIjpudWxsLCJBUElfVElNRSI6MTY1ODE1MDYzMn0.7LjpIhZbO-jNkchF3lRqEe8ZQECx_Hp7YERPrQ9gOqE'
-              
-          }
-        };
-        
-        axios.get('https://cjpl.webnoo.com/api/Leaderboard/examdata', axiosConfig)
-        .then((res) => {
-          console.log("RESPONSE RECEIVED: ", res);
-          setExamination(res);
-        })
-        .catch((err) => {
-          console.log("AXIOS ERROR: ", err);
-        })
-     /**  try {
-        let item = await axios.get(`https://naksheadmin.webnoo.in.net/api/blogs`)
-        setExamination(item);
-        console.log(item);
-      } catch (error) {
-        console.log(error);
-      } **/
-      }
-      fetchExam();
-  }, []);
-  
+async function handleSelectChange(event) {
+    setSelectedExam(event.target.value);
+    //alert(event.target.value)
+    try {
+      let item = await axios.get(`https://cjpl.webnoo.com/api/Leaderboard/examdetail?examid=${selectedExam}`)
+      setExamDate(item.data.data.date);
+      setExamShift(item.data.data.shifts);
+      setExamCentre(item.data.data.centers);
+      //console.log(item.data.data);
+     } catch (error) {
+      console.log(error);
+     }
+}
+                                                                                            
+async function handleCounters(event) {
+  event.preventDefault();
+  try {
+    let item = await axios.get(`https://cjpl.webnoo.com/api/Leaderboard/counter?examid=${selectedExam}&dateid=${selectedExamDate}&shiftid=${selectedExamShift}&centerid=${selectedCentre}`)
+    setCounters(item.data.data);
+    console.log(item.data);
+    console.log(selectedExam);
+    console.log(selectedExamDate);
+    console.log(selectedExamShift);
+    console.log(selectedCentre);
+   } catch (error) {
+    console.log(error);
+   }
+}
+
     return (
       <React.Fragment>
         
@@ -79,26 +99,28 @@ const LatestTranaction = () => {
 
             <Form>
                           <Row>
+                        
                           <Col sm="6" className="col-xl">
                               <FormGroup className="mt-3 mb-0">
                                 <Label>Select Exam</Label>
-                                <select className="form-control select2-search-disable">
-                                <option value="Select Exam" disabled defaultValue>Select Exam</option>
-                                  {examination.map(item => (
-                                   <option key={item.id} value={item.id}> {item.exam_code}</option>
+                                <select value={selectedExam} onChange={handleSelectChange} className="form-control" >
+                                {examination.map((item, index) => (
+                                   <option  key={index} value={item.id}> {item.exam_code}</option>
                                    ))}
+                              
                                 </select>
-                              </FormGroup>
+                                
+                              </FormGroup>  
                             </Col>
 
                             <Col sm="6" className="col-xl">
                               <FormGroup className="mt-3 mb-0">
                                 <Label>Exam Date</Label>
-                                <select className="form-control select2-search-disable">
-                                  <option value="" defaultValue>
-                                    
-                                  </option>
-                                  
+                                <select onChange={(e)=>{setSelectedExamDate(e.target.value)}} className="form-control" >
+                                {examDate.map((item, index) => (
+                                   <option  key={index} value={item.id}> {item.exam_date}</option>
+                                   ))}
+                              
                                 </select>
                               </FormGroup>
                             </Col>
@@ -106,11 +128,11 @@ const LatestTranaction = () => {
                             <Col sm="6" className="col-xl">
                               <FormGroup className="mt-3 mb-0">
                                 <Label>Exam Shift</Label>
-                                <select className="form-control select2-search-disable">
-                                  <option value="" defaultValue>
-                                    
-                                  </option>
-                                  
+                                <select onChange={(e)=>{setSelectedExamShift(e.target.value)}} className="form-control" >
+                                {examShift.map((item, index) => (
+                                   <option  key={index} value={item.id}> {item.shift_code}</option>
+                                   ))}
+                              
                                 </select>
                               </FormGroup>
                             </Col>
@@ -118,11 +140,11 @@ const LatestTranaction = () => {
                             <Col sm="6" className="col-xl">
                               <FormGroup className="mt-3 mb-0">
                                 <Label>Exam Center</Label>
-                                <select className="form-control select2-search-disable">
-                                  <option value="" defaultValue>
-                                    
-                                  </option>
-                               
+                                <select onChange={(e)=>{setSelectedCentre(e.target.value)}} className="form-control" >
+                                {examCentre.map((item, index) => (
+                                   <option  key={index} value={item.id}> {item.center_name}</option>
+                                   ))}
+                              
                                 </select>
                               </FormGroup>
                             </Col>
@@ -130,6 +152,7 @@ const LatestTranaction = () => {
                             <Col sm="6" className="col-xl align-self-end">
                               <div className="mb-3">
                                 <Button
+                                  onClick={handleCounters}
                                   type="button"
                                   color="primary filter-btn"
                                   className="w-md">
@@ -142,6 +165,14 @@ const LatestTranaction = () => {
             
           </CardBody>
         </Card>
+        <Row>
+              {/* earning */}
+              <Earning counters={counters} />
+
+              {/* sales anytics */}
+              <SalesAnalytics />
+            </Row>
+       
       </React.Fragment>
     )
   
