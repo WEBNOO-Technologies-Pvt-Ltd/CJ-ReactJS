@@ -6,8 +6,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Earning from "./../Dashboard-saas/earning";
 import SalesAnalytics from "./../Dashboard-saas/sales-analytics";
-//import Charts
-//import StackedColumnChart from "./StackedColumnChart";
 import "react-datepicker/dist/react-datepicker.css"
 
 import {
@@ -44,6 +42,8 @@ const LatestTranaction = () => {
   const [examShift, setExamShift] = useState([]);
   const [examCentre, setExamCentre] = useState([]);
   const [counters, setCounters] = useState([]);
+  const [attandence, setAttandence] = useState([]);
+  
   //selcted value
   const [selectedExam,setSelectedExam] = useState("");
   const [selectedExamDate,setSelectedExamDate] = useState("");
@@ -71,7 +71,7 @@ async function handleSelectChange(event) {
       setExamDate(item.data.data.date);
       setExamShift(item.data.data.shifts);
       setExamCentre(item.data.data.centers);
-      //console.log(item.data.data);
+      console.log(item.data.data);
      } catch (error) {
       console.log(error);
      }
@@ -82,11 +82,13 @@ async function handleCounters(event) {
   try {
     let item = await axios.get(`https://cjpl.webnoo.com/api/Leaderboard/counter?examid=${selectedExam}&dateid=${selectedExamDate}&shiftid=${selectedExamShift}&centerid=${selectedCentre}`)
     setCounters(item.data.data);
-    console.log(item.data);
+    /*console.log(item.data);
     console.log(selectedExam);
     console.log(selectedExamDate);
     console.log(selectedExamShift);
-    console.log(selectedCentre);
+    console.log(selectedCentre);*/
+   // let attandence = await axios.get(`https://cjpl.webnoo.com/api/Leaderboard/attendancecount?examid=${selectedExam}&dateid=${selectedExamDate}&shiftid=${selectedExamShift}&centerid=${selectedCentre}`)
+    //setAttandence(attandence.data.data)
    } catch (error) {
     console.log(error);
    }
@@ -107,7 +109,7 @@ async function handleCounters(event) {
                                 <Label>Select Exam</Label>
                                 <select value={selectedExam} onChange={handleSelectChange} className="form-control" >
                                 {examination.map((item, index) => (
-                                   <option  key={index} value={item.id}> {item.exam_code}</option>
+                                   <option  key={index} value={item.id}>{item.exam_code} {item.exam_name}</option>
                                    ))}
                               
                                 </select>
@@ -120,7 +122,7 @@ async function handleCounters(event) {
                                 <Label>Exam Date</Label>
                                 <select onChange={(e)=>{setSelectedExamDate(e.target.value)}} className="form-control" >
                                 {examDate.map((item, index) => (
-                                   <option  key={index} value={item.id}> {item.exam_date}</option>
+                                   <option  key={index} value={item.id}>{item.exam_type}{`-`}{item.exam_date}</option>
                                    ))}
                               
                                 </select>
@@ -132,7 +134,7 @@ async function handleCounters(event) {
                                 <Label>Exam Shift</Label>
                                 <select onChange={(e)=>{setSelectedExamShift(e.target.value)}} className="form-control" >
                                 {examShift.map((item, index) => (
-                                   <option  key={index} value={item.id}> {item.shift_code}</option>
+                                   <option  key={index} value={item.id}>{item.from_shift}{`-`}{item.to_shift}{`:`} {item.shift_code}</option>
                                    ))}
                               
                                 </select>
@@ -144,7 +146,7 @@ async function handleCounters(event) {
                                 <Label>Exam Center</Label>
                                 <select onChange={(e)=>{setSelectedCentre(e.target.value)}} className="form-control" >
                                 {examCentre.map((item, index) => (
-                                   <option  key={index} value={item.id}> {item.center_name}</option>
+                                   <option  key={index} value={item.id}>{item.customer_ref_code}{`-`}{item.center_name}</option>
                                    ))}
                               
                                 </select>
